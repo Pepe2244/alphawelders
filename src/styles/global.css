@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FF4500;
+  --color-secondary: #0A1A2F;
+  --color-tertiary: #E5E7EB;
+
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}

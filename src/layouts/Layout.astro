@@ -1,0 +1,98 @@
+---
+import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Solda TIG Especializada e Manutenção Industrial em Itapetininga. Precisão e qualidade para sua indústria.",
+} = Astro.props;
+const canonicalURL = new URL(
+    Astro.url.pathname,
+    Astro.site || "https://alphawelders.com.br",
+);
+const socialImageURL = new URL(
+    "/social-image.jpg",
+    Astro.site || "https://alphawelders.com.br",
+); // Placeholder
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={socialImageURL} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={socialImageURL} />
+
+        <title>{title}</title>
+
+        <!-- Schema.org JSON-LD -->
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                name: "Alphawelders",
+                image: new URL(
+                    "/logo.png",
+                    Astro.site || "https://alphawelders.com.br",
+                ).toString(),
+                "@id": (Astro.site || "https://alphawelders.com.br").toString(),
+                url: (Astro.site || "https://alphawelders.com.br").toString(),
+                telephone: "+5515999999999",
+                address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "Itapetininga e Região",
+                    addressLocality: "Itapetininga",
+                    addressRegion: "SP",
+                    postalCode: "18200-000",
+                    addressCountry: "BR",
+                },
+                priceRange: "$$",
+                openingHoursSpecification: {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                    ],
+                    opens: "08:00",
+                    closes: "18:00",
+                },
+            })}
+        />
+    </head>
+    <body class="bg-tertiary/20 text-slate-900 font-sans antialiased">
+        <slot />
+    </body>
+</html>

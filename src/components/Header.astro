@@ -1,0 +1,110 @@
+---
+import { Menu, X, Phone } from "lucide-react";
+
+const navItems = [
+    { name: "Início", href: "#" },
+    { name: "Serviços", href: "#servicos" },
+    { name: "Galeria", href: "#galeria" },
+    { name: "Contato", href: "#contato" },
+];
+---
+
+<header
+    class="bg-secondary text-white sticky top-0 z-50 border-b border-white/10 shadow-lg"
+    x-data="{ open: false }"
+>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo -->
+            <div class="flex-shrink-0 flex items-center">
+                <a
+                    href="/"
+                    class="text-2xl font-bold font-heading tracking-wider uppercase"
+                >
+                    Alpha<span class="text-primary">welders</span>
+                </a>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                {
+                    navItems.map((item) => (
+                        <a
+                            href={item.href}
+                            class="text-tertiary hover:text-primary transition-colors font-medium"
+                        >
+                            {item.name}
+                        </a>
+                    ))
+                }
+                <a
+                    href="https://wa.me/5515999999999?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento."
+                    target="_blank"
+                    class="bg-primary hover:bg-orange-700 text-white px-6 py-2.5 rounded font-bold transition-all transform hover:scale-105 shadow-lg shadow-orange-900/20 flex items-center gap-2"
+                >
+                    <Phone className="w-4 h-4" />
+                    Orçamento via WhatsApp
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button
+                    id="mobile-menu-btn"
+                    class="text-white hover:text-primary focus:outline-none"
+                >
+                    <Menu className="w-8 h-8" id="menu-icon" />
+                    <X className="w-8 h-8 hidden" id="close-icon" />
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-secondary border-t border-white/10 pb-4"
+    >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {
+                navItems.map((item) => (
+                    <a
+                        href={item.href}
+                        class="block px-3 py-2 rounded-md text-base font-medium text-tertiary hover:text-white hover:bg-white/5"
+                    >
+                        {item.name}
+                    </a>
+                ))
+            }
+            <a
+                href="https://wa.me/5515999999999"
+                class="block w-full text-center mt-4 bg-primary text-white px-4 py-3 rounded font-bold"
+            >
+                Orçamento via WhatsApp
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+
+    btn?.addEventListener("click", () => {
+        menu?.classList.toggle("hidden");
+        menuIcon?.classList.toggle("hidden");
+        closeIcon?.classList.toggle("hidden");
+    });
+
+    // Close menu when clicking a link
+    const links = menu?.querySelectorAll("a");
+    links?.forEach((link) => {
+        link.addEventListener("click", () => {
+            menu?.classList.add("hidden");
+            menuIcon?.classList.remove("hidden");
+            closeIcon?.classList.add("hidden");
+        });
+    });
+</script>

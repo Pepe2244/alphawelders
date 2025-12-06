@@ -1,0 +1,133 @@
+---
+import {
+    Facebook,
+    Instagram,
+    Linkedin,
+    Mail,
+    MapPin,
+    Phone,
+} from "lucide-react";
+---
+
+<footer class="bg-slate-950 text-tertiary pt-16 pb-8" id="contato">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <!-- Brand -->
+            <div class="space-y-4">
+                <div
+                    class="text-2xl font-bold font-heading tracking-wider uppercase text-white"
+                >
+                    Alpha<span class="text-primary">welders</span>
+                </div>
+                <p class="text-slate-400 leading-relaxed">
+                    Referência em solda TIG de alta precisão e manutenção
+                    industrial. Qualidade e comprometimento com o prazo da sua
+                    indústria.
+                </p>
+                <div class="flex space-x-4">
+                    <a
+                        href="#"
+                        class="text-slate-400 hover:text-primary transition-colors"
+                        ><Facebook className="w-6 h-6" /></a
+                    >
+                    <a
+                        href="#"
+                        class="text-slate-400 hover:text-primary transition-colors"
+                        ><Instagram className="w-6 h-6" /></a
+                    >
+                    <a
+                        href="#"
+                        class="text-slate-400 hover:text-primary transition-colors"
+                        ><Linkedin className="w-6 h-6" /></a
+                    >
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white font-bold font-heading text-lg mb-4">
+                    Navegação Rápida
+                </h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="#" class="hover:text-primary transition-colors"
+                            >Início</a>
+                    </li>
+                    <li>
+                        <a
+                            href="#servicos"
+                            class="hover:text-primary transition-colors"
+                            >Serviços</a>
+                    </li>
+                    <li>
+                        <a
+                            href="#galeria"
+                            class="hover:text-primary transition-colors"
+                            >Galeria</a>
+                    </li>
+                    <li>
+                        <a
+                            href="#contato"
+                            class="hover:text-primary transition-colors"
+                            >Contato</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h3 class="text-white font-bold font-heading text-lg mb-4">
+                    Fale Conosco
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <Phone className="w-5 h-5 text-primary mt-1" />
+                        <span>
+                            <span class="block text-white font-medium"
+                                >Telefone / WhatsApp</span
+                            >
+                            <a
+                                href="https://wa.me/5515999999999"
+                                class="hover:text-white transition-colors"
+                                >(15) 99999-9999</a
+                            >
+                        </span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <Mail className="w-5 h-5 text-primary mt-1" />
+                        <span>
+                            <span class="block text-white font-medium"
+                                >Email</span
+                            >
+                            <a
+                                href="mailto:contato@alphawelders.com.br"
+                                class="hover:text-white transition-colors"
+                                >contato@alphawelders.com.br</a
+                            >
+                        </span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-primary mt-1" />
+                        <span>
+                            <span class="block text-white font-medium"
+                                >Endereço</span
+                            >
+                            Itapetininga - SP<br />
+                            Atendimento em toda a região
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div
+            class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500"
+        >
+            <p>
+                &copy; {new Date().getFullYear()} Alphawelders. Todos os direitos
+                reservados.
+            </p>
+            <p>Desenvolvido com tecnologia de ponta.</p>
+        </div>
+    </div>
+</footer>

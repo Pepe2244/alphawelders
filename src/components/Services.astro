@@ -1,0 +1,64 @@
+---
+import { Flame, Wrench, Settings, RefreshCw } from "lucide-react";
+
+const services = [
+    {
+        title: "GTAW (TIG)",
+        description:
+            "Soldagem TIG de alta precisão em Aço Inox e Alumínio. Acabamento sanitário ideal para indústrias alimentícias e farmacêuticas.",
+        icon: Flame,
+    },
+    {
+        title: "SMAW / FCAW",
+        description:
+            "Processos com eletrodo revestido e arame tubular para estruturas pesadas e manutenção de campo.",
+        icon: RefreshCw,
+    },
+    {
+        title: "Tubulação Industrial",
+        description:
+            "Montagem e soldagem de tubulações para vapor, ar comprimido, produtos químicos e redes sanitárias.",
+        icon: Settings,
+    },
+    {
+        title: "Manutenção Industrial",
+        description:
+            "Reparos estruturais, fabricação de suportes, plataformas e adequações em tanques e equipamentos.",
+        icon: Wrench,
+    },
+];
+---
+
+<section id="servicos" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2
+                class="text-3xl md:text-4xl font-bold font-heading text-secondary mb-4"
+            >
+                Nossas Soluções
+            </h2>
+            <p class="text-lg text-slate-600">
+                Tecnologia e qualificação técnica para atender as demandas mais
+                exigentes da indústria.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {
+                services.map((service) => (
+                    <div class="group bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-xl hover:border-primary transition-all duration-300">
+                        <div class="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                            <service.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300" />
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-secondary mb-3 group-hover:text-primary transition-colors">
+                            {service.title}
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            {service.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

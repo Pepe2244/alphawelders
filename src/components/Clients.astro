@@ -1,0 +1,39 @@
+---
+const clients = [
+    { name: "Parceiro 1", logo: "/client-1.png" },
+    { name: "Parceiro 2", logo: "/client-2.png" },
+    { name: "Parceiro 3", logo: "/client-3.png" },
+    { name: "Parceiro 4", logo: "/client-4.png" },
+    { name: "Parceiro 5", logo: "/client-5.png" },
+    { name: "Parceiro 6", logo: "/client-6.png" },
+];
+---
+
+<section class="py-20 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2
+                class="text-2xl md:text-3xl font-bold font-heading text-secondary mb-4 opacity-80"
+            >
+                Empresas que confiam na Alphawelders
+            </h2>
+            <div class="w-24 h-1 bg-primary mx-auto rounded"></div>
+        </div>
+
+        <div
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center"
+        >
+            {
+                clients.map((client) => (
+                    <div class="w-32 h-32 flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 group">
+                        <img
+                            src={client.logo}
+                            alt={`Logo ${client.name}`}
+                            class="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                        />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
