@@ -69,8 +69,10 @@ const projects = [
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {
-                projects.map((project) => (
-                    <div class="group cursor-pointer">
+                projects.map((project, index) => (
+                    <div
+                        class={`reveal reveal-delay-${((index % 3) + 1) * 200} group cursor-pointer`}
+                    >
                         <div class="relative overflow-hidden border border-[var(--border)] aspect-video bg-[var(--bg-card)]">
                             <div class="absolute inset-0 bg-[var(--accent)]/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
 

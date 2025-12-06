@@ -68,8 +68,10 @@ const services = [
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {
-                services.map((service) => (
-                    <div class="group bg-[var(--bg-card)] p-8 border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
+                services.map((service, index) => (
+                    <div
+                        class={`reveal reveal-delay-${(index + 1) * 200} group bg-[var(--bg-card)] p-8 border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden`}
+                    >
                         <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                             <service.icon className="w-24 h-24 text-[var(--text-secondary)]" />
                         </div>
