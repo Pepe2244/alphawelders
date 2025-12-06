@@ -2,9 +2,13 @@
 import { CheckCircle2, X, Award, MapPin, Calendar } from "lucide-react";
 
 const stats = [
-    { label: "Experiência de Mercado", value: "13+ Anos", icon: Calendar },
+    {
+        label: "Experiência de Mercado",
+        value: "10+ Anos ",
+        icon: Calendar,
+    },
     { label: "Procedimentos (EPS)", value: "Qualificados", icon: Award },
-    { label: "Área de Cobertura", value: "Itapetininga/SP", icon: MapPin },
+    { label: "Área de Cobertura", value: "Atendimento Nacional", icon: MapPin },
 ];
 ---
 
@@ -98,8 +102,6 @@ const stats = [
             </div>
         </div>
     </div>
-
-    <!-- Modal (Dark Version) -->
     <dialog
         id="history-modal"
         class="m-auto backdrop:bg-black/90 bg-transparent p-0 w-[95%] max-w-2xl shadow-2xl open:animate-fade-in-up fixed inset-0 z-50 text-[var(--text-primary)]"
@@ -128,42 +130,35 @@ const stats = [
                     class="space-y-4 text-[var(--text-secondary)] leading-relaxed font-light"
                 >
                     <p>
-                        A <strong>Alphawelders</strong> nasceu em 2010 com um propósito
-                        claro: elevar o padrão técnico da soldagem em Itapetininga
-                        e região.
+                        Embora jovem, a Alphawelders opera com a expertise de
+                        uma equipe com mais de 10 anos de mercado.
                     </p>
                     <p>
-                        Começamos focados na manutenção industrial pesada. Mas
-                        nossa obsessão pela "Qualidade Raio-X" nos abriu portas
-                        em setores que não toleram falhas: farmacêutico e
-                        alimentício.
-                    </p>
-                    <p>
-                        Hoje, somos a escolha técnica para quem precisa de solda
-                        sanitária de verdade, não apenas estética. Investimos
-                        constantemente em qualificação e procedimentos (EPS)
-                        para garantir que cada junta soldada seja um ponto de
-                        segurança, não de risco.
-                    </p>
-                    <p class="font-mono text-[var(--accent)] pt-4">
-                        "Liderança que une. Precisão que dura."
+                        De Itapetininga para todo o Brasil, elevamos o padrão em
+                        solda sanitária e manutenção industrial.
+                    </p><p>
+                        Vamos onde o projeto exigir, garantindo rigor técnico e
+                        performance para que sua operação nunca pare
                     </p>
                 </div>
+                <p class="font-mono text-[var(--accent)] pt-4">
+                    "Liderança que une. Precisão que dura."
+                </p>
             </div>
+        </div>
 
-            <div
-                class="bg-[var(--bg-dark)] px-8 py-4 border-t border-[var(--border)] flex justify-between items-center shrink-0"
+        <div
+            class="bg-[var(--bg-dark)] px-8 py-4 border-t border-[var(--border)] flex justify-between items-center shrink-0"
+        >
+            <span class="text-xs text-[var(--border)] font-mono"
+                >SYS.LOG: HISTORY_VIEWED</span
             >
-                <span class="text-xs text-[var(--border)] font-mono"
-                    >SYS.LOG: HISTORY_VIEWED</span
-                >
-                <button
-                    id="close-modal-footer-btn"
-                    class="text-[var(--text-primary)] font-bold hover:text-[var(--accent)] transition-colors px-4 py-2 font-mono text-sm uppercase"
-                >
-                    Fechar [ESC]
-                </button>
-            </div>
+            <button
+                id="close-modal-footer-btn"
+                class="text-[var(--text-primary)] font-bold hover:text-[var(--accent)] transition-colors px-4 py-2 font-mono text-sm uppercase"
+            >
+                Fechar [ESC]
+            </button>
         </div>
     </dialog>
 </section>

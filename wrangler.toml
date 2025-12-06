@@ -1,0 +1,7 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "alphawelders"
+compatibility_date = "2025-12-06"
+pages_build_output_dir = "./dist"
+
+# Opcional: Se você estiver usando SSR no futuro, precisará de mais configurações aqui.
+# Por enquanto, para estático (static), isso basta.
