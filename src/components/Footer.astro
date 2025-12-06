@@ -6,128 +6,205 @@ import {
     Mail,
     MapPin,
     Phone,
+    MoveRight,
 } from "lucide-react";
 ---
 
-<footer class="bg-slate-950 text-tertiary pt-16 pb-8" id="contato">
+<footer
+    class="bg-[#050505] text-[var(--text-secondary)] pt-20 pb-10 border-t border-[var(--border)]"
+    id="contato"
+>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-            <!-- Brand -->
-            <div class="space-y-4">
-                <div
-                    class="text-2xl font-bold font-heading tracking-wider uppercase text-white"
+        <!-- CTA Massive Contact Area -->
+        <div
+            class="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center border-b border-[var(--border)] pb-16"
+        >
+            <div>
+                <span
+                    class="text-[var(--accent)] font-mono text-xs uppercase tracking-widest mb-4 block"
                 >
-                    Alpha<span class="text-primary">welders</span>
+                    Está pronto para começar?
+                </span>
+                <h2
+                    class="text-4xl md:text-5xl lg:text-6xl font-bold font-mono text-white mb-6"
+                >
+                    FALE AGORA COM <br />
+                    <span class="text-[var(--accent)]">NOSSA ENGENHARIA.</span>
+                </h2>
+                <p class="text-lg max-w-xl font-light">
+                    Soluções técnicas não podem esperar. Atendimento imediato
+                    via WhatsApp ou Telefone.
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a
+                    href="https://wa.me/5515999999999"
+                    target="_blank"
+                    class="group flex items-center justify-between bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--accent)] p-6 md:p-8 transition-all duration-300"
+                >
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-16 h-16 bg-[var(--accent)]/10 rounded flex items-center justify-center text-[var(--accent)]"
+                        >
+                            <Phone className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <p
+                                class="text-xs font-mono uppercase tracking-widest mb-1"
+                            >
+                                Plantão Técnico 24h
+                            </p>
+                            <p
+                                class="text-2xl md:text-4xl font-mono font-bold text-white group-hover:text-[var(--accent)] transition-colors"
+                            >
+                                (15) 99999-9999
+                            </p>
+                        </div>
+                    </div>
+                    <MoveRight
+                        className="w-8 h-8 text-[var(--border)] group-hover:text-[var(--accent)] group-hover:translate-x-2 transition-all"
+                    />
+                </a>
+
+                <a
+                    href="mailto:contato@alphawelders.com.br"
+                    class="group flex items-center justify-between bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--text-primary)] p-6 transition-all duration-300"
+                >
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-12 h-12 bg-[var(--bg-dark)] rounded flex items-center justify-center text-[var(--text-secondary)]"
+                        >
+                            <Mail className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <p
+                                class="text-xs font-mono uppercase tracking-widest mb-1"
+                            >
+                                Envie seu Projeto
+                            </p>
+                            <p
+                                class="text-xl font-mono font-bold text-white group-hover:text-[var(--text-primary)] transition-colors"
+                            >
+                                contato@alphawelders.com.br
+                            </p>
+                        </div>
+                    </div>
+                    <MoveRight
+                        className="w-6 h-6 text-[var(--border)] group-hover:text-[var(--text-primary)] group-hover:translate-x-1 transition-all"
+                    />
+                </a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <!-- Brand -->
+            <div class="col-span-1 md:col-span-2 space-y-6">
+                <div
+                    class="text-2xl font-bold font-mono tracking-tighter uppercase text-white"
+                >
+                    Alpha<span class="text-[var(--accent)]">welders</span>
                 </div>
-                <p class="text-slate-400 leading-relaxed">
-                    Referência em solda TIG de alta precisão e manutenção
-                    industrial. Qualidade e comprometimento com o prazo da sua
-                    indústria.
+                <p
+                    class="text-[var(--text-secondary)] leading-relaxed max-w-sm font-light text-sm"
+                >
+                    Referência absoluta em soldagem industrial de alta precisão.
+                    Comprometimento com normas técnicas, prazos e a segurança da
+                    sua operação.
                 </p>
                 <div class="flex space-x-4">
                     <a
                         href="#"
-                        class="text-slate-400 hover:text-primary transition-colors"
-                        ><Facebook className="w-6 h-6" /></a
+                        class="w-10 h-10 border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-white hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all"
                     >
+                        <Facebook className="w-5 h-5" />
+                    </a>
                     <a
                         href="#"
-                        class="text-slate-400 hover:text-primary transition-colors"
-                        ><Instagram className="w-6 h-6" /></a
+                        class="w-10 h-10 border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-white hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all"
                     >
+                        <Instagram className="w-5 h-5" />
+                    </a>
                     <a
                         href="#"
-                        class="text-slate-400 hover:text-primary transition-colors"
-                        ><Linkedin className="w-6 h-6" /></a
+                        class="w-10 h-10 border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-white hover:bg-[var(--accent)] hover:border-[var(--accent)] transition-all"
                     >
+                        <Linkedin className="w-5 h-5" />
+                    </a>
                 </div>
             </div>
 
-            <!-- Quick Links -->
+            <!-- Links -->
             <div>
-                <h3 class="text-white font-bold font-heading text-lg mb-4">
-                    Navegação Rápida
+                <h3
+                    class="text-white font-bold font-mono text-sm uppercase tracking-widest mb-6"
+                >
+                    Navegação
                 </h3>
-                <ul class="space-y-3">
+                <ul class="space-y-4 font-mono text-sm">
                     <li>
-                        <a href="#" class="hover:text-primary transition-colors"
+                        <a
+                            href="#"
+                            class="hover:text-[var(--accent)] transition-colors block py-1 border-b border-transparent hover:border-[var(--accent)] w-fit"
                             >Início</a>
                     </li>
                     <li>
                         <a
                             href="#servicos"
-                            class="hover:text-primary transition-colors"
-                            >Serviços</a>
+                            class="hover:text-[var(--accent)] transition-colors block py-1 border-b border-transparent hover:border-[var(--accent)] w-fit"
+                            >Capacidade Técnica</a>
                     </li>
                     <li>
                         <a
                             href="#galeria"
-                            class="hover:text-primary transition-colors"
-                            >Galeria</a>
+                            class="hover:text-[var(--accent)] transition-colors block py-1 border-b border-transparent hover:border-[var(--accent)] w-fit"
+                            >Acervo Técnico</a>
                     </li>
                     <li>
                         <a
                             href="#contato"
-                            class="hover:text-primary transition-colors"
+                            class="hover:text-[var(--accent)] transition-colors block py-1 border-b border-transparent hover:border-[var(--accent)] w-fit"
                             >Contato</a>
                     </li>
                 </ul>
             </div>
 
-            <!-- Contact -->
+            <!-- Address -->
             <div>
-                <h3 class="text-white font-bold font-heading text-lg mb-4">
-                    Fale Conosco
+                <h3
+                    class="text-white font-bold font-mono text-sm uppercase tracking-widest mb-6"
+                >
+                    Operação
                 </h3>
-                <ul class="space-y-4">
+                <ul
+                    class="space-y-4 font-mono text-sm text-[var(--text-secondary)]"
+                >
                     <li class="flex items-start gap-3">
-                        <Phone className="w-5 h-5 text-primary mt-1" />
+                        <MapPin
+                            className="w-5 h-5 text-[var(--accent)] mt-1 flex-shrink-0"
+                        />
                         <span>
-                            <span class="block text-white font-medium"
-                                >Telefone / WhatsApp</span
-                            >
-                            <a
-                                href="https://wa.me/5515999999999"
-                                class="hover:text-white transition-colors"
-                                >(15) 99999-9999</a
-                            >
-                        </span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <Mail className="w-5 h-5 text-primary mt-1" />
-                        <span>
-                            <span class="block text-white font-medium"
-                                >Email</span
-                            >
-                            <a
-                                href="mailto:contato@alphawelders.com.br"
-                                class="hover:text-white transition-colors"
-                                >contato@alphawelders.com.br</a
-                            >
-                        </span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <MapPin className="w-5 h-5 text-primary mt-1" />
-                        <span>
-                            <span class="block text-white font-medium"
-                                >Endereço</span
-                            >
                             Itapetininga - SP<br />
-                            Atendimento em toda a região
+                            Atendimento Regional
                         </span>
+                    </li>
+                    <li class="pt-4 border-t border-[var(--border)]">
+                        <span class="block text-[var(--accent)] text-xs mb-1"
+                            >HORÁRIO TÉCNICO</span
+                        >
+                        Seg - Sex: 08:00 - 18:00
                     </li>
                 </ul>
             </div>
         </div>
 
         <div
-            class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500"
+            class="border-t border-[var(--border)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-[var(--text-secondary)]/60"
         >
             <p>
-                &copy; {new Date().getFullYear()} Alphawelders. Todos os direitos
-                reservados.
+                &copy; {new Date().getFullYear()} Alphawelders &mdash; Precisão Industrial.
             </p>
-            <p>Desenvolvido com tecnologia de ponta.</p>
+            <p>SYSTEM: ONLINE // VERSION: 2.5.0</p>
         </div>
     </div>
 </footer>

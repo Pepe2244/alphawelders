@@ -1,76 +1,116 @@
 ---
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Zap, ShieldCheck, Clock } from "lucide-react";
 ---
 
-<section class="relative bg-secondary overflow-hidden">
-    <!-- Background Elements -->
-    <div class="absolute inset-0 z-0">
-        <img
-            src="/hero-bg.png"
-            alt="Industrial Welding Background"
-            class="w-full h-full object-cover opacity-20"
-        />
-        <div
-            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent"
-        >
-        </div>
-        <div
-            class="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
-        >
-        </div>
+<section
+    class="relative bg-[var(--bg-dark)] overflow-hidden min-h-[90vh] flex items-center border-b border-[var(--border)]"
+>
+    <!-- Grid Blueprint Background -->
+    <div
+        class="absolute inset-0 z-0 opacity-[0.03]"
+        style="background-image: linear-gradient(#f0f6fc 1px, transparent 1px), linear-gradient(90deg, #f0f6fc 1px, transparent 1px); background-size: 40px 40px;"
+    >
     </div>
 
+    <!-- Radial Gradient Accent -->
     <div
-        class="container mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative z-10"
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)] rounded-full blur-[120px] opacity-10 transform translate-x-1/2 -translate-y-1/2"
     >
-        <div class="max-w-3xl">
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+        <div class="max-w-4xl">
             <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-primary mb-6 animate-fade-in-up"
+                class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-[var(--accent)] text-[var(--accent)] bg-[var(--accent)]/5 text-xs font-mono tracking-widest uppercase"
             >
-                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"
+                <span
+                    class="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"
                 ></span>
-                <span class="text-sm font-semibold tracking-wide uppercase"
-                    >Atendimento em Itapetininga e Região</span
-                >
+                System Status: Operational
             </div>
 
             <h1
-                class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white leading-tight mb-6 drop-shadow-lg"
+                class="text-5xl md:text-6xl lg:text-7xl font-bold font-mono text-[var(--text-primary)] leading-none mb-8 tracking-tighter"
             >
-                Liderança que une. <br />
-                <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400"
-                    >Precisão que dura.</span
+                SOLUÇÕES INDUSTRIAIS<br />
+                <span class="text-[var(--text-secondary)]"
+                    >DE ALTA PRECISÃO</span
                 >
             </h1>
 
-            <p
-                class="text-lg md:text-xl text-tertiary mb-10 max-w-2xl leading-relaxed"
+            <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 border-l-2 border-[var(--border)] pl-6"
             >
-                Segurança e excelência é o que nos move. <br
-                    class="hidden md:block"
-                />
-                Desde 2010 oferecendo soluções completas em GTAW (TIG), SMAW e Caldeiraria
-                Industrial.
-            </p>
+                <div class="space-y-1">
+                    <div
+                        class="flex items-center gap-2 text-[var(--accent)] mb-1"
+                    >
+                        <ShieldCheck size={20} />
+                        <span class="font-bold font-mono text-sm uppercase"
+                            >Qualidade Raio-X</span
+                        >
+                    </div>
+                    <p class="text-sm text-[var(--text-secondary)]">
+                        Procedimentos certificados e inspeção rigorosa.
+                    </p>
+                </div>
+                <div class="space-y-1">
+                    <div
+                        class="flex items-center gap-2 text-[var(--accent)] mb-1"
+                    >
+                        <Clock size={20} />
+                        <span class="font-bold font-mono text-sm uppercase"
+                            >Plantão 24/7</span
+                        >
+                    </div>
+                    <p class="text-sm text-[var(--text-secondary)]">
+                        Disponibilidade total para paradas críticas.
+                    </p>
+                </div>
+                <div class="space-y-1">
+                    <div
+                        class="flex items-center gap-2 text-[var(--accent)] mb-1"
+                    >
+                        <Zap size={20} />
+                        <span class="font-bold font-mono text-sm uppercase"
+                            >Solda Sanitária</span
+                        >
+                    </div>
+                    <p class="text-sm text-[var(--text-secondary)]">
+                        Acabamento padrão farmacêutico e alimentício.
+                    </p>
+                </div>
+            </div>
 
             <div class="flex flex-col sm:flex-row gap-4">
                 <a
                     href="https://wa.me/5515999999999"
                     target="_blank"
-                    class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-orange-600 text-white text-lg font-bold px-8 py-4 rounded shadow-lg shadow-orange-900/30 transition-all transform hover:-translate-y-1"
+                    class="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] hover:bg-[#ff7b33] text-white text-lg font-bold font-mono px-8 py-4 uppercase tracking-wider transition-all clip-path-slant"
+                    style="clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);"
                 >
-                    Solicitar Cotação Agora
-                    <ArrowRight className="w-5 h-5" />
+                    <span class="mr-2">Iniciar Projeto</span>
+                    <ArrowRight
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    />
                 </a>
 
                 <a
                     href="#servicos"
-                    class="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/20 text-white text-lg font-semibold px-8 py-4 rounded transition-all backdrop-blur-sm"
+                    class="inline-flex items-center justify-center gap-2 border border-[var(--border)] hover:border-[var(--text-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] text-lg font-mono font-medium px-8 py-4 uppercase tracking-wider transition-all bg-[var(--bg-card)]/50 backdrop-blur-sm"
                 >
-                    Conhecer Soluções
+                    Dados Técnicos
                 </a>
             </div>
         </div>
+    </div>
+
+    <!-- Decorative Technical Elements -->
+    <div
+        class="absolute bottom-10 right-10 hidden md:block text-[var(--border)] font-mono text-xs text-right opacity-50"
+    >
+        <p>COORD: 23°35'S 46°39'W</p>
+        <p>SECTOR: A-7</p>
+        <p>REV: 2.0.24</p>
     </div>
 </section>

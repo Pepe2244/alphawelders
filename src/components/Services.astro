@@ -1,61 +1,98 @@
 ---
-import { Flame, Wrench, Settings, RefreshCw } from "lucide-react";
+import {
+    Flame,
+    Wrench,
+    Settings,
+    Factory,
+    Workflow,
+    ShieldAlert,
+} from "lucide-react";
 
 const services = [
     {
-        title: "GTAW (TIG)",
+        title: "Solda TIG / GTAW",
         description:
-            "Soldagem TIG de alta precisão em Aço Inox e Alumínio. Acabamento sanitário ideal para indústrias alimentícias e farmacêuticas.",
+            "Processo de alta pureza para Inox 304/316L e ligas não-ferrosas. Acabamento sanitário grau alimentício.",
         icon: Flame,
     },
     {
-        title: "SMAW / FCAW",
+        title: "Tubulação Sanitária",
         description:
-            "Processos com eletrodo revestido e arame tubular para estruturas pesadas e manutenção de campo.",
-        icon: RefreshCw,
+            "Montagem de linhas de processo (OD) com purga interna e passivação. Certificação para indústrias farmacêuticas.",
+        icon: Factory,
     },
     {
-        title: "Tubulação Industrial",
+        title: "Caldeiraria Industrial",
         description:
-            "Montagem e soldagem de tubulações para vapor, ar comprimido, produtos químicos e redes sanitárias.",
+            "Fabricação de tanques, skids e suportes estruturais sob medida com solda MIG/MAG e Eletrodo Revestido.",
         icon: Settings,
     },
     {
-        title: "Manutenção Industrial",
+        title: "Manutenção Especializada",
         description:
-            "Reparos estruturais, fabricação de suportes, plataformas e adequações em tanques e equipamentos.",
+            "Intervenções em paradas programadas e reparos emergenciais em trocadores de calor e reatores.",
         icon: Wrench,
     },
 ];
 ---
 
-<section id="servicos" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<section
+    id="servicos"
+    class="py-24 bg-[var(--bg-dark)] border-b border-[var(--border)] relative"
+>
+    <div
+        class="absolute inset-0 opacity-[0.02]"
+        style="background-image: radial-gradient(var(--text-secondary) 1px, transparent 1px); background-size: 20px 20px;"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2
-                class="text-3xl md:text-4xl font-bold font-heading text-secondary mb-4"
+            <span
+                class="text-[var(--accent)] font-mono text-xs uppercase tracking-widest border border-[var(--accent)] px-2 py-1 mb-4 inline-block"
             >
-                Nossas Soluções
+                Especificações
+            </span>
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-[var(--text-primary)] mb-6"
+            >
+                CAPACIDADE TÉCNICA
             </h2>
-            <p class="text-lg text-slate-600">
-                Tecnologia e qualificação técnica para atender as demandas mais
-                exigentes da indústria.
+            <p
+                class="text-lg text-[var(--text-secondary)] font-light max-w-2xl mx-auto"
+            >
+                Soluções de engenharia aplicadas ao chão de fábrica com rigor
+                normativo.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {
                 services.map((service) => (
-                    <div class="group bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-xl hover:border-primary transition-all duration-300">
-                        <div class="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
-                            <service.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300" />
+                    <div class="group bg-[var(--bg-card)] p-8 border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <service.icon className="w-24 h-24 text-[var(--text-secondary)]" />
                         </div>
-                        <h3 class="text-xl font-bold font-heading text-secondary mb-3 group-hover:text-primary transition-colors">
+
+                        <div class="w-12 h-12 bg-[var(--bg-dark)] border border-[var(--border)] rounded flex items-center justify-center mb-6 group-hover:border-[var(--accent)] group-hover:text-[var(--accent)] transition-colors duration-300">
+                            <service.icon className="w-6 h-6 text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors" />
+                        </div>
+
+                        <h3 class="text-xl font-bold font-mono text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent)] transition-colors">
                             {service.title}
                         </h3>
-                        <p class="text-slate-600 leading-relaxed">
+
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
                             {service.description}
                         </p>
+
+                        <div class="w-full h-[1px] bg-[var(--border)] group-hover:bg-[var(--accent)]/50 transition-colors mt-auto" />
+                        <div class="pt-4 flex justify-between items-center text-xs font-mono text-[var(--text-secondary)] group-hover:text-[var(--text-primary)]">
+                            <span>SPEC-0{services.indexOf(service) + 1}</span>
+                            <span class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                →
+                            </span>
+                        </div>
                     </div>
                 ))
             }

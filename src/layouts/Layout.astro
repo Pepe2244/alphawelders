@@ -10,13 +10,14 @@ const {
     title,
     description = "Solda TIG Especializada e Manutenção Industrial em Itapetininga. Precisão e qualidade para sua indústria.",
 } = Astro.props;
+
 const canonicalURL = new URL(
     Astro.url.pathname,
-    Astro.site || "https://alphawelders.com.br",
+    Astro.site || "https://alphawelders.netlify.app/",
 );
 const socialImageURL = new URL(
     "/social-image.jpg",
-    Astro.site || "https://alphawelders.com.br",
+    Astro.site || "https://alphawelders.netlify.app/",
 ); // Placeholder
 ---
 
@@ -34,7 +35,7 @@ const socialImageURL = new URL(
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
             rel="stylesheet"
         />
 
@@ -63,10 +64,14 @@ const socialImageURL = new URL(
                 name: "Alphawelders",
                 image: new URL(
                     "/logo.png",
-                    Astro.site || "https://alphawelders.com.br",
+                    Astro.site || "https://alphawelders.netlify.app/",
                 ).toString(),
-                "@id": (Astro.site || "https://alphawelders.com.br").toString(),
-                url: (Astro.site || "https://alphawelders.com.br").toString(),
+                "@id": (
+                    Astro.site || "https://alphawelders.netlify.app/"
+                ).toString(),
+                url: (
+                    Astro.site || "https://alphawelders.netlify.app/"
+                ).toString(),
                 telephone: "+5515999999999",
                 address: {
                     "@type": "PostalAddress",
@@ -92,7 +97,39 @@ const socialImageURL = new URL(
             })}
         />
     </head>
-    <body class="bg-tertiary/20 text-slate-900 font-sans antialiased">
+    <body
+        class="bg-[var(--bg-dark)] text-[var(--text-primary)] font-sans antialiased selection:bg-[var(--accent)] selection:text-white"
+    >
         <slot />
     </body>
 </html>
+
+<style is:global>
+    :root {
+        --bg-dark: #0f1115;
+        --bg-card: #161b22;
+        --text-primary: #f0f6fc;
+        --text-secondary: #8b949e;
+        --accent: #ff5c00;
+        --border: #30363d;
+
+        --font-sans: "Inter", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+    }
+
+    body {
+        background-color: var(--bg-dark);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-mono);
+        letter-spacing: -0.02em;
+    }
+</style>

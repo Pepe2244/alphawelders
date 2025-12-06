@@ -1,83 +1,97 @@
 ---
-import { CheckCircle2, X } from "lucide-react";
+import { CheckCircle2, X, Award, MapPin, Calendar } from "lucide-react";
 
-const benefits = [
-    "Agilidade no atendimento",
-    "Versatilidade em projetos",
-    "Qualidade raio-x",
-    "Segurança total",
+const stats = [
+    { label: "Experiência de Mercado", value: "13+ Anos", icon: Calendar },
+    { label: "Procedimentos (EPS)", value: "Qualificados", icon: Award },
+    { label: "Área de Cobertura", value: "Itapetininga/SP", icon: MapPin },
 ];
 ---
 
-<section id="sobre" class="py-24 bg-white overflow-hidden relative">
+<section
+    id="sobre"
+    class="py-24 bg-[var(--bg-dark)] border-b border-[var(--border)] overflow-hidden relative"
+>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <!-- Image/Visual Side -->
-            <div class="w-full lg:w-1/2 relative">
+            <div class="w-full lg:w-1/2 relative group">
                 <div
-                    class="absolute -top-4 -left-4 w-24 h-24 bg-primary/10 rounded-full z-0"
+                    class="absolute inset-0 bg-[var(--accent)]/20 transform translate-x-4 translate-y-4 border border-[var(--accent)] z-0 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"
                 >
                 </div>
+
                 <div
-                    class="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary/10 rounded-full z-0"
+                    class="relative z-10 border border-[var(--border)] bg-[var(--bg-card)] p-2"
                 >
-                </div>
-                <img
-                    src="/about-welder.png"
-                    alt="Soldador profissional Alphawelders"
-                    class="relative z-10 rounded-lg shadow-2xl w-full object-cover aspect-square"
-                />
-                <div
-                    class="absolute bottom-8 left-8 z-20 bg-white p-6 rounded shadow-xl border-l-4 border-primary max-w-xs hidden md:block"
-                >
-                    <p class="text-secondary font-bold text-lg">
-                        Excelência Comprovada
-                    </p>
-                    <p class="text-slate-600 text-sm mt-1">
-                        Garantindo a satisfação total em cada cordão de solda.
-                    </p>
+                    <img
+                        src="/about-welder.png"
+                        alt="Soldador profissional Alphawelders"
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    />
+
+                    <!-- Tech Overlay -->
+                    <div
+                        class="absolute bottom-6 right-6 bg-[var(--bg-dark)]/90 backdrop-blur border border-[var(--border)] p-4 max-w-xs"
+                    >
+                        <p class="text-[var(--accent)] font-mono text-xs mb-1">
+                            STATUS: CERTIFICADO
+                        </p>
+                        <p class="text-[var(--text-secondary)] text-xs">
+                            Equipe técnica com registro em carteira e
+                            qualificação periódica.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <!-- Content Side -->
             <div class="w-full lg:w-1/2">
                 <span
-                    class="inline-block py-1 px-3 rounded bg-orange-100 text-primary font-bold text-sm tracking-wide uppercase mb-4"
+                    class="text-[var(--accent)] font-mono text-xs uppercase tracking-widest mb-2 block"
                 >
-                    Sobre Nós
+                    Quem Somos
                 </span>
                 <h2
-                    class="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-secondary mb-6 leading-tight"
+                    class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-[var(--text-primary)] mb-8 leading-tight"
                 >
-                    Segurança e excelência é o que nos move
+                    SEGURANÇA E EXCELÊNCIA <br />
+                    <span class="text-[var(--text-secondary)]"
+                        >É O QUE NOS MOVE</span
+                    >
                 </h2>
-                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                    Especializada na área de aço inoxidável e tubulações
-                    industriais. Nossa missão é oferecer soluções que combinam
-                    técnica apurada e responsabilidade.
-                </p>
-                <p class="text-slate-600 mb-8 leading-relaxed">
-                    Atuamos fortemente nas indústrias alimentícia, farmacêutica
-                    e química, entregando projetos de caldeiraria e manutenção
-                    com soldadores qualificados e procedimentos rigorosos.
+
+                <p
+                    class="text-lg text-[var(--text-secondary)] mb-10 leading-relaxed border-l-2 border-[var(--border)] pl-4"
+                >
+                    Especialistas em estruturas críticas e sanitárias. Não
+                    vendemos apenas solda, entregamos integridade estrutural
+                    para sua planta industrial.
                 </p>
 
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                <div class="grid grid-cols-1 gap-4 mb-10">
                     {
-                        benefits.map((item) => (
-                            <li class="flex items-center gap-3">
-                                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                                <span class="text-secondary font-medium">
-                                    {item}
-                                </span>
-                            </li>
+                        stats.map((stat) => (
+                            <div class="flex items-center gap-4 bg-[var(--bg-card)] border border-[var(--border)] p-4 hover:border-[var(--accent)] transition-colors group">
+                                <div class="w-12 h-12 flex items-center justify-center bg-[var(--bg-dark)] rounded border border-[var(--border)] group-hover:text-[var(--accent)] transition-colors">
+                                    <stat.icon className="w-6 h-6 text-[var(--text-primary)]" />
+                                </div>
+                                <div>
+                                    <p class="text-[var(--text-secondary)] text-xs font-mono uppercase">
+                                        {stat.label}
+                                    </p>
+                                    <p class="text-[var(--text-primary)] font-bold text-xl font-mono">
+                                        {stat.value}
+                                    </p>
+                                </div>
+                            </div>
                         ))
                     }
-                </ul>
+                </div>
 
                 <button
                     id="open-modal-btn"
-                    class="inline-block bg-secondary hover:bg-slate-900 text-white font-bold py-4 px-8 rounded shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer"
+                    class="inline-flex items-center gap-2 bg-[var(--bg-card)] hover:bg-[var(--accent)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] hover:text-white font-mono font-bold py-4 px-8 uppercase tracking-wider transition-all"
                 >
                     Conheça Nossa História
                 </button>
@@ -85,66 +99,69 @@ const benefits = [
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal (Dark Version) -->
     <dialog
         id="history-modal"
-        class="m-auto backdrop:bg-black/80 rounded-lg p-0 w-[95%] max-w-2xl shadow-2xl open:animate-fade-in-up fixed inset-0 z-50"
+        class="m-auto backdrop:bg-black/90 bg-transparent p-0 w-[95%] max-w-2xl shadow-2xl open:animate-fade-in-up fixed inset-0 z-50 text-[var(--text-primary)]"
     >
-        <div class="bg-white relative max-h-[90vh] flex flex-col">
+        <div
+            class="bg-[var(--bg-card)] border border-[var(--border)] relative max-h-[90vh] flex flex-col shadow-2xl shadow-black/50"
+        >
             <button
                 id="close-modal-btn"
-                class="absolute top-4 right-4 text-slate-400 hover:text-primary transition-colors z-10"
+                class="absolute top-4 right-4 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors z-10"
             >
                 <X className="w-8 h-8" />
             </button>
 
             <div class="p-8 md:p-12 overflow-y-auto">
-                <h3
-                    class="text-2xl font-bold font-heading text-secondary mb-6 flex items-center gap-3"
-                >
-                    <span class="w-2 h-8 bg-primary block rounded-full"></span>
-                    Nossa História
-                </h3>
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-2 h-8 bg-[var(--accent)] block"></span>
+                    <h3
+                        class="text-2xl font-bold font-mono text-[var(--text-primary)] uppercase"
+                    >
+                        Nossa Jornada
+                    </h3>
+                </div>
 
-                <div class="space-y-4 text-slate-600 leading-relaxed">
+                <div
+                    class="space-y-4 text-[var(--text-secondary)] leading-relaxed font-light"
+                >
                     <p>
-                        A <strong>Alphawelders</strong> nasceu da paixão pela metalurgia
-                        e da necessidade de oferecer um serviço diferenciado em Itapetininga
-                        e região. Fundada em 2010 por especialistas com décadas de
-                        chão de fábrica, nossa jornada começou com um pequeno galpão
-                        e um grande sonho: elevar o padrão da solda industrial.
+                        A <strong>Alphawelders</strong> nasceu em 2010 com um propósito
+                        claro: elevar o padrão técnico da soldagem em Itapetininga
+                        e região.
                     </p>
                     <p>
-                        Nos primeiros anos, focamos em atender pequenas demandas
-                        de manutenção. Com dedicação obsessiva pela qualidade (o
-                        que chamamos de "Qualidade Raio-X"), rapidamente
-                        ganhamos a confiança de grandes indústrias alimentícias
-                        e farmacêuticas, setores que exigem acabamento sanitário
-                        impecável.
+                        Começamos focados na manutenção industrial pesada. Mas
+                        nossa obsessão pela "Qualidade Raio-X" nos abriu portas
+                        em setores que não toleram falhas: farmacêutico e
+                        alimentício.
                     </p>
                     <p>
-                        Hoje, somos referência em solda TIG de alta precisão e
-                        montagem de tubulações complexas. Nosso lema, <em
-                            >"Liderança que une. Precisão que dura."</em
-                        >, reflete não apenas a união dos metais que soldamos,
-                        mas a parceria duradoura que construímos com cada
-                        cliente.
+                        Hoje, somos a escolha técnica para quem precisa de solda
+                        sanitária de verdade, não apenas estética. Investimos
+                        constantemente em qualificação e procedimentos (EPS)
+                        para garantir que cada junta soldada seja um ponto de
+                        segurança, não de risco.
                     </p>
-                    <p>
-                        Continuamos investindo em tecnologia e treinamento, mas
-                        mantemos a essência artesanal que garante a perfeição em
-                        cada detalhe.
+                    <p class="font-mono text-[var(--accent)] pt-4">
+                        "Liderança que une. Precisão que dura."
                     </p>
                 </div>
             </div>
+
             <div
-                class="bg-gray-50 px-8 py-4 border-t border-gray-100 flex justify-end shrink-0"
+                class="bg-[var(--bg-dark)] px-8 py-4 border-t border-[var(--border)] flex justify-between items-center shrink-0"
             >
+                <span class="text-xs text-[var(--border)] font-mono"
+                    >SYS.LOG: HISTORY_VIEWED</span
+                >
                 <button
                     id="close-modal-footer-btn"
-                    class="text-secondary font-bold hover:text-primary transition-colors px-4 py-2"
+                    class="text-[var(--text-primary)] font-bold hover:text-[var(--accent)] transition-colors px-4 py-2 font-mono text-sm uppercase"
                 >
-                    Fechar
+                    Fechar [ESC]
                 </button>
             </div>
         </div>

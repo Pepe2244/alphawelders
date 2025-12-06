@@ -4,74 +4,110 @@ const projects = [
         title: "Solda Sanitária em Inox 304",
         image: "/gallery-1.png",
         category: "Tubulação",
+        specs: "Material: Inox 304 | Proc: TIG/GTAW",
     },
     {
         title: "Tubulação Industrial",
         image: "/gallery-2.png",
         category: "Infraestrutura",
+        specs: 'Diâm: 4" Sch 40 | Raio-X: 100%',
     },
     {
         title: "Fabricação de Tanques",
         image: "/gallery-3.png",
         category: "Caldeiraria",
+        specs: "Cap: 15.000L | Acab: Polido",
     },
     {
         title: "Manutenção em Trocador de Calor",
         image: "/gallery-4.png",
         category: "Serviço",
+        specs: "Pressão: 15 Bar | Teste Hidro.",
     },
     {
         title: "Detalhe de Acabamento TIG",
         image: "/gallery-5.png",
         category: "Qualidade",
+        specs: "Padrão Sanitário | Visual: Aprov.",
     },
     {
         title: "Estrutura Metálica",
         image: "/gallery-6.png",
         category: "Fabricação",
+        specs: "Perfil W | Solda MIG/FCAW",
     },
 ];
 ---
 
-<section id="galeria" class="py-20 bg-white">
+<section
+    id="galeria"
+    class="py-24 bg-[var(--bg-dark)] border-b border-[var(--border)]"
+>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span
-                class="text-primary font-bold tracking-wider uppercase text-sm"
-                >Portfólio</span
+        <div
+            class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-[var(--border)] pb-8"
+        >
+            <div class="max-w-2xl">
+                <span
+                    class="text-[var(--accent)] font-mono text-xs uppercase tracking-widest mb-2 block"
+                >
+                    Portfólio Industrial
+                </span>
+                <h2
+                    class="text-3xl md:text-4xl font-bold font-mono text-[var(--text-primary)]"
+                >
+                    ACERVO TÉCNICO
+                </h2>
+            </div>
+            <a
+                href="#contato"
+                class="hidden md:inline-flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--accent)] font-mono text-sm uppercase tracking-wider transition-colors mt-4 md:mt-0"
             >
-            <h2
-                class="text-3xl md:text-4xl font-bold font-heading text-secondary mt-2 mb-4"
-            >
-                Chão de Fábrica
-            </h2>
-            <p class="text-lg text-slate-600">
-                Confira alguns dos nossos projetos e a qualidade do acabamento
-                que oferecemos.
-            </p>
+                Ver Todos os Projetos <span class="text-lg">→</span>
+            </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {
                 projects.map((project) => (
-                    <div class="group relative overflow-hidden rounded-lg shadow-md aspect-video cursor-pointer">
-                        <img
-                            src={project.image}
-                            alt={project.title}
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                            loading="lazy"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-orange-400 text-sm font-medium mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden border border-[var(--border)] aspect-video bg-[var(--bg-card)]">
+                            <div class="absolute inset-0 bg-[var(--accent)]/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
+
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                class="w-full h-full object-cover transform group-hover:scale-105 group-hover:grayscale-0 grayscale transition-all duration-700"
+                                loading="lazy"
+                            />
+
+                            <div class="absolute top-0 right-0 bg-[var(--accent)] text-white text-xs font-bold px-2 py-1 font-mono transform translate-x-full group-hover:translate-x-0 transition-transform duration-300">
                                 {project.category}
-                            </span>
-                            <h3 class="text-white text-xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
+                            </div>
+                        </div>
+
+                        <div class="mt-0 bg-[var(--bg-card)] border-x border-b border-[var(--border)] p-4 group-hover:border-[var(--accent)] transition-colors">
+                            <h3 class="text-[var(--text-primary)] text-lg font-bold font-mono mb-1 group-hover:text-[var(--accent)] transition-colors truncate">
                                 {project.title}
                             </h3>
+                            <div class="text-[var(--text-secondary)] text-xs font-mono border-t border-[var(--border)] pt-2 mt-2 flex justify-between items-center opacity-70 group-hover:opacity-100 transition-opacity">
+                                <span>{project.specs.split("|")[0]}</span>
+                                <span class="w-[1px] h-3 bg-[var(--border)]" />
+                                <span>{project.specs.split("|")[1] || ""}</span>
+                            </div>
                         </div>
                     </div>
                 ))
             }
+        </div>
+
+        <div class="mt-8 text-center md:hidden">
+            <a
+                href="#contato"
+                class="inline-flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--accent)] font-mono text-sm uppercase tracking-wider transition-colors"
+            >
+                Ver Todos os Projetos →
+            </a>
         </div>
     </div>
 </section>
