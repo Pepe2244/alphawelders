@@ -4,11 +4,13 @@ import "../styles/global.css";
 interface Props {
     title: string;
     description?: string;
+    image?: string;
 }
 
 const {
     title,
-    description = "Solda TIG Especializada e Manutenção Industrial em Itapetininga. Precisão e qualidade para sua indústria.",
+    description = "Especialistas em Solda TIG sanitária, caldeiraria e manutenção industrial em Itapetininga e região. Qualidade Raio-X e atendimento 24h.",
+    image = "/social-image.png",
 } = Astro.props;
 
 const canonicalURL = new URL(
@@ -16,22 +18,29 @@ const canonicalURL = new URL(
     Astro.site || "https://alphawelders.netlify.app/",
 );
 const socialImageURL = new URL(
-    "/social-image.jpg",
+    image,
     Astro.site || "https://alphawelders.netlify.app/",
-); // Placeholder
+);
 ---
 
 <!doctype html>
 <html lang="pt-BR" class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta
+            name="keywords"
+            content="Solda TIG, Manutenção Industrial, Itapetininga, Caldeiraria, Aço Inox, Solda Sanitária, Tubulação Industrial, Alphawelders"
+        />
+        <meta name="author" content="Alphawelders Engenharia" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href={canonicalURL} />
 
-        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -39,61 +48,72 @@ const socialImageURL = new URL(
             rel="stylesheet"
         />
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="business.business" />
         <meta property="og:url" content={canonicalURL} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={socialImageURL} />
+        <meta property="og:site_name" content="Alphawelders" />
+        <meta property="og:locale" content="pt_BR" />
 
-        <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={canonicalURL} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={socialImageURL} />
 
-        <title>{title}</title>
-
-        <!-- Schema.org JSON-LD -->
         <script
             type="application/ld+json"
             set:html={JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
-                name: "Alphawelders",
-                image: new URL(
-                    "/logo.png",
-                    Astro.site || "https://alphawelders.netlify.app/",
-                ).toString(),
-                "@id": (
-                    Astro.site || "https://alphawelders.netlify.app/"
-                ).toString(),
-                url: (
-                    Astro.site || "https://alphawelders.netlify.app/"
-                ).toString(),
+                "@id": "https://alphawelders.netlify.app",
+                name: "Alphawelders - Solda e Manutenção Industrial",
+                image: [
+                    new URL(
+                        "/logo.png",
+                        Astro.site || "https://alphawelders.netlify.app/",
+                    ).toString(),
+                    new URL(
+                        "/hero-bg.png",
+                        Astro.site || "https://alphawelders.netlify.app/",
+                    ).toString(),
+                ],
                 telephone: "+5515998608170",
+                url: "https://alphawelders.netlify.app",
                 address: {
                     "@type": "PostalAddress",
-                    streetAddress: "Itapetininga e Região",
+                    streetAddress: "Região de Itapetininga",
                     addressLocality: "Itapetininga",
                     addressRegion: "SP",
                     postalCode: "18200-000",
                     addressCountry: "BR",
                 },
-                priceRange: "$$",
-                openingHoursSpecification: {
-                    "@type": "OpeningHoursSpecification",
-                    dayOfWeek: [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday",
-                    ],
-                    opens: "08:00",
-                    closes: "18:00",
+                geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: -23.5916,
+                    longitude: -48.0532,
                 },
+                openingHoursSpecification: [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        dayOfWeek: [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                        ],
+                        opens: "08:00",
+                        closes: "18:00",
+                    },
+                ],
+                priceRange: "$$",
+                areaServed: [
+                    { "@type": "City", name: "Itapetininga" },
+                    { "@type": "City", name: "Sorocaba" },
+                    { "@type": "City", name: "Tatuí" },
+                ],
             })}
         />
     </head>
@@ -101,7 +121,6 @@ const socialImageURL = new URL(
         class="bg-[var(--bg-dark)] text-[var(--text-primary)] font-sans antialiased selection:bg-[var(--accent)] selection:text-white"
     >
         <slot />
-
         <script>
             function initAnimations() {
                 const observerOptions = {
@@ -109,24 +128,19 @@ const socialImageURL = new URL(
                     rootMargin: "0px",
                     threshold: 0.1,
                 };
-
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add("active");
-                            observer.unobserve(entry.target); // Only animate once
+                            observer.unobserve(entry.target);
                         }
                     });
                 }, observerOptions);
-
-                const revealElements = document.querySelectorAll(".reveal");
-                revealElements.forEach((el) => observer.observe(el));
+                document
+                    .querySelectorAll(".reveal")
+                    .forEach((el) => observer.observe(el));
             }
-
-            // Init on load
             document.addEventListener("DOMContentLoaded", initAnimations);
-
-            // Re-init if using View Transitions (just in case future proofing)
             document.addEventListener("astro:page-load", initAnimations);
         </script>
     </body>
@@ -140,17 +154,14 @@ const socialImageURL = new URL(
         --text-secondary: #8b949e;
         --accent: #ff5c00;
         --border: #30363d;
-
         --font-sans: "Inter", system-ui, sans-serif;
         --font-mono: "JetBrains Mono", monospace;
     }
-
     body {
         background-color: var(--bg-dark);
         color: var(--text-primary);
         font-family: var(--font-sans);
     }
-
     h1,
     h2,
     h3,
@@ -159,5 +170,25 @@ const socialImageURL = new URL(
     h6 {
         font-family: var(--font-mono);
         letter-spacing: -0.02em;
+    }
+
+    /* Utilitários de Animação */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .reveal-delay-200 {
+        transition-delay: 200ms;
+    }
+    .reveal-delay-400 {
+        transition-delay: 400ms;
+    }
+    .reveal-delay-600 {
+        transition-delay: 600ms;
     }
 </style>
