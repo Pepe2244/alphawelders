@@ -101,6 +101,34 @@ const socialImageURL = new URL(
         class="bg-[var(--bg-dark)] text-[var(--text-primary)] font-sans antialiased selection:bg-[var(--accent)] selection:text-white"
     >
         <slot />
+
+        <script>
+            function initAnimations() {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "0px",
+                    threshold: 0.1,
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("active");
+                            observer.unobserve(entry.target); // Only animate once
+                        }
+                    });
+                }, observerOptions);
+
+                const revealElements = document.querySelectorAll(".reveal");
+                revealElements.forEach((el) => observer.observe(el));
+            }
+
+            // Init on load
+            document.addEventListener("DOMContentLoaded", initAnimations);
+
+            // Re-init if using View Transitions (just in case future proofing)
+            document.addEventListener("astro:page-load", initAnimations);
+        </script>
     </body>
 </html>
 
