@@ -107,4 +107,51 @@ const navItems = [
             closeIcon?.classList.add("hidden");
         });
     });
+
+    // Scroll Spy
+    const sections = document.querySelectorAll("section[id], footer[id]");
+    const navLinks = document.querySelectorAll(
+        "nav a[href^='#'], #mobile-menu a[href^='#']",
+    );
+
+    function highlightNavigation() {
+        let scrollY = window.scrollY;
+
+        sections.forEach((section) => {
+            const current = section as HTMLElement;
+            const sectionHeight = current.offsetHeight;
+            const sectionTop =
+                current.getBoundingClientRect().top + window.scrollY - 150; // Offset for header
+            const sectionId = current.getAttribute("id");
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLinks.forEach((link) => {
+                    link.classList.remove("text-[var(--accent)]");
+                    link.classList.add("text-tertiary");
+
+                    if (link.getAttribute("href")?.includes(sectionId || "")) {
+                        link.classList.remove("text-tertiary");
+                        link.classList.add("text-[var(--accent)]");
+                    }
+                });
+            }
+        });
+
+        // Handle "Home" / Top
+        if (scrollY < 100) {
+            navLinks.forEach((link) => {
+                link.classList.remove("text-[var(--accent)]");
+                link.classList.add("text-tertiary");
+            });
+            // Assume first link is Home if needed, or check href="#"
+            const homeLink = document.querySelector("nav a[href='#']");
+            if (homeLink) {
+                homeLink.classList.remove("text-tertiary");
+                homeLink.classList.add("text-[var(--accent)]");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", highlightNavigation);
+    highlightNavigation(); // Run on load
 </script>
