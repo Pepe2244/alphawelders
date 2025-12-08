@@ -10,8 +10,12 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [
+      // @ts-ignore
+      tailwindcss()
+    ]
   },
+  site: 'https://alphawelders.netlify.app',
 
   integrations: [react(), sitemap()]
 });
