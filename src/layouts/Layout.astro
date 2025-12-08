@@ -1,5 +1,10 @@
 ---
 import "../styles/global.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/700.css";
 
 interface Props {
     title: string;
@@ -44,13 +49,6 @@ const socialImageURL = new URL(
             content="6QHfwuSkiRsIOou0jEbvEK3YJc9dE7RgYd-PbGsX6do"
         />
         <link rel="canonical" href={canonicalURL} />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
-            rel="stylesheet"
-        />
 
         <meta property="og:type" content="business.business" />
         <meta property="og:url" content={canonicalURL} />
