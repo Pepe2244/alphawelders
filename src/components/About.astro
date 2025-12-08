@@ -1,5 +1,7 @@
 ---
 import { CheckCircle2, X, Award, MapPin, Calendar } from "lucide-react";
+import { Image } from "astro:assets";
+import aboutWelder from "../assets/about-welder.png";
 
 const stats = [
     {
@@ -28,8 +30,8 @@ const stats = [
                 <div
                     class="relative z-10 border border-[var(--border)] bg-[var(--bg-card)] p-2"
                 >
-                    <img
-                        src="/about-welder.png"
+                    <Image
+                        src={aboutWelder}
                         alt="Soldador profissional Alphawelders"
                         class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     />

@@ -1,38 +1,46 @@
 ---
+import { Image } from "astro:assets";
+import gallery1 from "../assets/gallery-1.png";
+import gallery2 from "../assets/gallery-2.png";
+import gallery3 from "../assets/gallery-3.png";
+import gallery4 from "../assets/gallery-4.png";
+import gallery5 from "../assets/gallery-5.png";
+import gallery6 from "../assets/gallery-6.png";
+
 const projects = [
     {
         title: "Solda Sanitária em Inox",
-        image: "/gallery-1.png",
+        image: gallery1,
         category: "Tubulação",
         specs: "Material: Inox 10S | Proc: TIG/GTAW",
     },
     {
         title: "Tubulação Industrial",
-        image: "/gallery-2.png",
+        image: gallery2,
         category: "Infraestrutura",
         specs: "Tubulação de linha de incêndio",
     },
     {
         title: "Fabricação de Tanques",
-        image: "/gallery-3.png",
+        image: gallery3,
         category: "Caldeiraria",
         specs: "Montagem e Solda em tanques metálicos",
     },
     {
         title: "Caixa de captação ETE em aço Inoxidável",
-        image: "/gallery-4.png",
+        image: gallery4,
         category: "Estrutura e Manutenção",
         specs: "Material: Aço Inoxidável | Proc: TIG/GTAW",
     },
     {
         title: "Detalhe de Acabamento TIG",
-        image: "/gallery-5.png",
+        image: gallery5,
         category: "Qualidade",
         specs: "Padrão Sanitário | Visual: Aprov.",
     },
     {
         title: "Estrutura Metálica",
-        image: "/gallery-6.png",
+        image: gallery6,
         category: "Fabricação",
         specs: "Perfil W | Solda MIG/FCAW",
     },
@@ -77,11 +85,10 @@ const projects = [
                         <div class="relative overflow-hidden border border-[var(--border)] aspect-video bg-[var(--bg-card)]">
                             <div class="absolute inset-0 bg-[var(--accent)]/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
 
-                            <img
+                            <Image
                                 src={project.image}
                                 alt={project.title}
                                 class="w-full h-full object-cover transform group-hover:scale-105 group-hover:grayscale-0 md:grayscale transition-all duration-700"
-                                loading="lazy"
                             />
 
                             <div class="absolute top-0 right-0 bg-[var(--accent)] text-white text-xs font-bold px-2 py-1 font-mono transform translate-x-full group-hover:translate-x-0 transition-transform duration-300">
